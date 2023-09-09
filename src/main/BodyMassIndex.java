@@ -9,45 +9,49 @@ public class BodyMassIndex {
         this.setSex(sex);
     }
 
-    public String calculateBmi(){
-        double bmiValue = this.getWeight() / (this.getHeight() * this.getHeight());
-        String bmiReturn;
+    public String getBodyMassIndex(){
+        double bodyMassIndexValue = getBodyMassIndex();
+        String bodyMassIndexResult;
 
         if (this.sex == 'F'){
-            if (bmiValue < 19.1){
-                bmiReturn = "Under weight";
+            if (bodyMassIndexValue < 19.1){
+                bodyMassIndexResult = "Under weight";
             }
-            else if (bmiValue < 25.8){
-                bmiReturn = "Normal weight";
+            else if (bodyMassIndexValue < 25.8){
+                bodyMassIndexResult = "Normal weight";
             }
-            else if (bmiValue < 27.3){
-                bmiReturn = "Marginally overweight";
+            else if (bodyMassIndexValue < 27.3){
+                bodyMassIndexResult = "Marginally overweight";
             }
-            else if (bmiValue < 32.3){
-                bmiReturn = "Over ideal weight";
+            else if (bodyMassIndexValue < 32.3){
+                bodyMassIndexResult = "Over ideal weight";
             }
             else {
-                bmiReturn = "Obese";
+                bodyMassIndexResult = "Obese";
             }
         }
         else{
-            if (bmiValue < 20.7){
-                bmiReturn = "Under weight";
+            if (bodyMassIndexValue < 20.7){
+                bodyMassIndexResult = "Under weight";
             }
-            else if (bmiValue < 26.4){
-                bmiReturn = "Normal weight";
+            else if (bodyMassIndexValue < 26.4){
+                bodyMassIndexResult = "Normal weight";
             }
-            else if (bmiValue < 27.8){
-                bmiReturn = "Marginally overweight";
+            else if (bodyMassIndexValue < 27.8){
+                bodyMassIndexResult = "Marginally overweight";
             }
-            else if (bmiValue < 31.1){
-                bmiReturn = "Over ideal weight";
+            else if (bodyMassIndexValue < 31.1){
+                bodyMassIndexResult = "Over ideal weight";
             }
             else {
-                bmiReturn = "Obese";
+                bodyMassIndexResult = "Obese";
             }
         }
-        return bmiReturn;
+        return bodyMassIndexResult;
+    }
+
+    public double calculateBodyMassIndex(){
+        return this.getWeight() / (this.getHeight() * this.getHeight());
     }
 
     public double getWeight(){
