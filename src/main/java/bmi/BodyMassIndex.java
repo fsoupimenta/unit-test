@@ -1,3 +1,4 @@
+package bmi;
 public class BodyMassIndex {
     private double weight;
     private double height;
@@ -10,7 +11,7 @@ public class BodyMassIndex {
     }
 
     public String getBodyMassIndex(){
-        double bodyMassIndexValue = getBodyMassIndex();
+        double bodyMassIndexValue = calculateBodyMassIndex();
         String bodyMassIndexResult;
 
         if (this.sex == 'F'){
