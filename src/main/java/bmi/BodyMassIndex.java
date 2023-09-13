@@ -60,7 +60,7 @@ public class BodyMassIndex {
     }
 
     public void setWeight(double weight){
-        if (weight < 0){
+        if (weight <= 0){
             throw new IllegalArgumentException("Invalid weight!");
         }
         this.weight = weight;
@@ -71,7 +71,7 @@ public class BodyMassIndex {
     }
 
     public void setHeight(double height){
-        if (height < 0){
+        if (height <= 0){
             throw new IllegalArgumentException("Invalid height!");
         }
         this.height = height;

@@ -14,32 +14,26 @@ class BodyMassIndexTest {
 
     @Test
     void shouldReturnInvalidWeight(){
-        try{
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             bodyMassIndex.setWeight(0);
-        }
-        catch (IllegalArgumentException e){
-            assertEquals("Invalid weight!", e.getMessage());
-        }
+        });
+        assertEquals("Invalid weight!", exception.getMessage());
     }
 
     @Test
     void shouldReturnInvalidHeight(){
-        try{
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             bodyMassIndex.setHeight(0);
-        }
-        catch (IllegalArgumentException e){
-            assertEquals("Invalid height!", e.getMessage());
-        }
+        });
+        assertEquals("Invalid height!", exception.getMessage());
     }
 
     @Test
     void shouldReturnInvalidSex(){
-        try{
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             bodyMassIndex.setSex('A');
-        }
-        catch (IllegalArgumentException e){
-            assertEquals("Invalid sex! Please type M for male and F for female", e.getMessage());
-        }
+        });
+        assertEquals("Invalid sex! Please type M for male and F for female", exception.getMessage());
     }
 
     @Test
