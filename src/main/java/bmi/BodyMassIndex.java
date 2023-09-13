@@ -61,7 +61,7 @@ public class BodyMassIndex {
 
     public void setWeight(double weight){
         if (weight < 0){
-            throw new IllegalArgumentException("Weight invalid!");
+            throw new IllegalArgumentException("Invalid weight!");
         }
         this.weight = weight;
     }
@@ -72,7 +72,7 @@ public class BodyMassIndex {
 
     public void setHeight(double height){
         if (height < 0){
-            throw new IllegalArgumentException("Height invalid!");
+            throw new IllegalArgumentException("Invalid height!");
         }
         this.height = height;
     }
@@ -84,7 +84,7 @@ public class BodyMassIndex {
     public void setSex(char sex){
         sex = Character.toUpperCase(sex);
         if (sex != 'M' && sex != 'F'){
-            throw new IllegalArgumentException("Sex not valid! Please type M for male and F for female");
+            throw new IllegalArgumentException("Invalid sex! Please type M for male and F for female");
         }
         this.sex = sex;
     }
