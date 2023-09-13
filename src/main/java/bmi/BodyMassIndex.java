@@ -14,7 +14,7 @@ public class BodyMassIndex {
         double bodyMassIndexValue = calculateBodyMassIndex();
         String bodyMassIndexResult;
 
-        if (this.sex == 'F'){
+        if (this.getSex() == 'F'){
             if (bodyMassIndexValue < 19.1){
                 bodyMassIndexResult = "Under weight";
             }
