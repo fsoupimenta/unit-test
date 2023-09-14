@@ -11,8 +11,7 @@ public class Aliquot {
             "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
     );
 
-    public Aliquot(String federationUnit, double productValue){
-        this.setFederationUnit(federationUnit);
+    public Aliquot(double productValue){
         this.setProductValue(productValue);
     }
 
@@ -23,7 +22,7 @@ public class Aliquot {
                 "MT".equals(this.getFederationUnit()) || "MS".equals(this.getFederationUnit()) ||
                 "PA".equals(this.getFederationUnit()) || "RR".equals(this.getFederationUnit()) ||
                 "SC".equals(this.getFederationUnit())) {
-            productValueWithAliquot = this.productValue + (this.productValue * 0.17);
+            productValueWithAliquot = this.getProductValue() + (this.getProductValue() * 0.17);
         }
         else if ("AM".equals(this.getFederationUnit()) || "AP".equals(this.getFederationUnit()) ||
                 "BA".equals(this.getFederationUnit()) || "CE".equals(this.getFederationUnit()) ||
@@ -34,10 +33,10 @@ public class Aliquot {
                 "RS".equals(this.getFederationUnit()) || "RJ".equals(this.getFederationUnit()) ||
                 "SP".equals(this.getFederationUnit()) || "SE".equals(this.getFederationUnit()) ||
                 "TO".equals(this.getFederationUnit())){
-            productValueWithAliquot = this.productValue + (this.productValue * 0.18);
+            productValueWithAliquot = this.getProductValue() + (this.getProductValue() * 0.18);
         }
         else {
-            productValueWithAliquot = this.productValue + (this.productValue * 0.175);
+            productValueWithAliquot = this.getProductValue() + (this.getProductValue() * 0.175);
         }
         return productValueWithAliquot;
     }
