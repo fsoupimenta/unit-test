@@ -1,0 +1,31 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./*
+          name: Release v${{ steps.get_version.outputs.version }}
+          tag_name: v${{ steps.get_version.outputs.version }}
+          title: Release v${{ steps.get_version.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+      - name: Get version from pom.xml
+        id: get_version
+        run: |
+          echo "::set-output name=version::$(grep -m1 '<version>' pom.xml | sed 's/.*<version>\([^<]*\)<\/version>.*/\1/')"
