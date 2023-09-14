@@ -32,6 +32,9 @@ public class Aliquot {
     }
 
     public void setProductValue(double productValue) {
+        if (productValue <= 0){
+            throw new IllegalArgumentException("Invalid product value!");
+        }
         this.productValue = productValue;
     }
 }
