@@ -1,4 +1,4 @@
-name: Create Release
+name: Auto Release
 
 on:
   push:
@@ -6,26 +6,25 @@ on:
       - main
 
 jobs:
-  create_release:
+  release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout código
         uses: actions/checkout@v2
 
-      - name: Create Release
-        id: create_release
+      - name: Configurar ambiente Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '19'
+
+      - name: Extrair versão do arquivo pom.xml
+        id: extract-version
+        run: echo "::set-output name=version::$(grep -m1 '<version>' pom.xml | sed 's/[^0-9.]//g')"
+
+      - name: Criar release
+        id: create-release
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-            ./*
-          name: Release v${{ steps.get_version.outputs.version }}
-          tag_name: v${{ steps.get_version.outputs.version }}
-          title: Release v${{ steps.get_version.outputs.version }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-
-      - name: Get version from pom.xml
-        id: get_version
-        run: |
-          echo "::set-output name=version::$(grep -m1 '<version>' pom.xml | sed 's/.*<version>\([^<]*\)<\/version>.*/\1/')"
+          name: Release ${{ steps.extract-version.outputs.version }}
+          tag_name: v${{ steps.extract-version.outputs.version }}
