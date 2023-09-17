@@ -13,11 +13,6 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v2
 
-      - name: Configurar ambiente Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '19'
-
       - name: Extrair versão do arquivo pom.xml
         id: extract-version
         run: echo "::set-output name=version::$(grep -m1 '<version>' pom.xml | sed 's/[^0-9.]//g')"
