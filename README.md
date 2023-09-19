@@ -51,6 +51,43 @@ The other has the objective of applying an aliquot to the value of a product, ac
 </table>
 
 #### Cycle Complexity Graph
+```Java
+        if (this.getSex() == 'F'){ // 1
+            if (bodyMassIndexValue < 19.1){ // 2
+                bodyMassIndexResult = "Under weight"; // 3
+            }
+            else if (bodyMassIndexValue < 25.8){ // 4
+                bodyMassIndexResult = "Normal weight"; // 5
+            }
+            else if (bodyMassIndexValue < 27.3){ // 6
+                bodyMassIndexResult = "Marginally overweight"; // 7
+            } 
+            else if (bodyMassIndexValue < 32.3){ // 8
+                bodyMassIndexResult = "Over ideal weight"; // 9
+            }
+            else { 
+                bodyMassIndexResult = "Obese"; // 10
+            }
+        }
+        else{ 
+            if (bodyMassIndexValue < 20.7){ // 11
+                bodyMassIndexResult = "Under weight"; // 12
+            }
+            else if (bodyMassIndexValue < 26.4){ // 13
+                bodyMassIndexResult = "Normal weight"; // 14
+            }
+            else if (bodyMassIndexValue < 27.8){ // 15
+                bodyMassIndexResult = "Marginally overweight"; // 16
+            }
+            else if (bodyMassIndexValue < 31.1){ // 17
+                bodyMassIndexResult = "Over ideal weight"; // 18
+            }
+            else { 
+                bodyMassIndexResult = "Obese"; // 19
+            }
+        }
+        return bodyMassIndexResult; // 20
+```
 <h4 align="center">
 <image src="/resources/BodyMassIndexCycleComplexityGraph.png" width="800">
 </h4> 
@@ -86,6 +123,30 @@ The other has the objective of applying an aliquot to the value of a product, ac
 </table>
 
 #### Cycle Complexity Graph
+```Java
+        if ("AC".equals(this.getFederationUnit()) /* 1 */ || "AL".equals(this.getFederationUnit()) /* 3 */ ||
+                "ES".equals(this.getFederationUnit()) /* 4 */ || "GO".equals(this.getFederationUnit()) /* 5 */ ||
+                "MT".equals(this.getFederationUnit()) /* 6 */ || "MS".equals(this.getFederationUnit()) /* 7 */ ||
+                "PA".equals(this.getFederationUnit()) /* 8 */ || "RR".equals(this.getFederationUnit()) /* 9 */ ||
+                "SC".equals(this.getFederationUnit()) /* 10 */ ) {
+            productValueWithAliquot = this.getProductValue() + (this.getProductValue() * 0.17); // 2
+        }
+        else if ("AM".equals(this.getFederationUnit()) /* 11 */ || "AP".equals(this.getFederationUnit()) /* 13 */ ||
+                "BA".equals(this.getFederationUnit()) /* 14 */ || "CE".equals(this.getFederationUnit()) /* 15 */ ||
+                "DF".equals(this.getFederationUnit()) /* 16 */ || "MA".equals(this.getFederationUnit()) /* 17 */ ||
+                "MG".equals(this.getFederationUnit()) /* 18 */ || "PB".equals(this.getFederationUnit()) /* 19 */ ||
+                "PR".equals(this.getFederationUnit()) /* 20 */ || "PE".equals(this.getFederationUnit()) /* 21 */ ||
+                "PI".equals(this.getFederationUnit()) /* 22 */ || "RN".equals(this.getFederationUnit()) /* 23 */ ||
+                "RS".equals(this.getFederationUnit()) /* 24 */ || "RJ".equals(this.getFederationUnit()) /* 25 */ ||
+                "SP".equals(this.getFederationUnit()) /* 26 */ || "SE".equals(this.getFederationUnit()) /* 27 */ ||
+                "TO".equals(this.getFederationUnit()) /* 28 */ ){
+            productValueWithAliquot = this.getProductValue() + (this.getProductValue() * 0.18); // 12
+        }
+        else {
+            productValueWithAliquot = this.getProductValue() + (this.getProductValue() * 0.175); // 29
+        }
+        return productValueWithAliquot; // 30
+```
 <h4 align="center">
 <image src="/resources/AliquotCycleComplexityGraph.png" width="800">
 </h4> 
